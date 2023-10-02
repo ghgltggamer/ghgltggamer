@@ -1,0 +1,223 @@
+[gd_scene load_steps=25 format=3 uid="uid://b2xrxv22laux2"]
+
+[ext_resource type="Texture2D" uid="uid://bildbwjnc5cba" path="res://scenes/House_01_by_progma_err/textures/wood_0018_1k_sQTe3f/wood_0018_color_1k.jpg" id="1_h5jt1"]
+[ext_resource type="Texture2D" uid="uid://ji8xy52guac0" path="res://scenes/House_01_by_progma_err/textures/wood_0018_1k_sQTe3f/wood_0018_height_1k.png" id="2_i1t33"]
+[ext_resource type="Texture2D" uid="uid://5f8dsdytev5r" path="res://scenes/House_01_by_progma_err/textures/wood_0018_1k_sQTe3f/wood_0018_normal_opengl_1k.png" id="3_qs6ha"]
+[ext_resource type="Texture2D" uid="uid://t11fup806m0i" path="res://scenes/House_01_by_progma_err/textures/wood_0018_1k_sQTe3f/wood_0018_roughness_1k.jpg" id="4_oihta"]
+[ext_resource type="Material" uid="uid://juwk1w6qfd47" path="res://scenes/House_01_by_progma_err/mat/house_laint6.tres" id="5_lq02m"]
+[ext_resource type="Material" uid="uid://b5ec4eiprg7uy" path="res://scenes/House_01_by_progma_err/mat/sofa.tres" id="6_j6k7v"]
+[ext_resource type="ArrayMesh" uid="uid://bb2an1q4xokqr" path="res://scenes/House_01_by_progma_err/models/AnyConv.com__sofa_group.obj" id="7_7pgn1"]
+[ext_resource type="Material" uid="uid://bjrn1t5x6k5y0" path="res://scenes/House_01_by_progma_err/mat/metal .tres" id="8_smr3w"]
+[ext_resource type="Material" uid="uid://bcuxag5dhmp3y" path="res://scenes/House_01_by_progma_err/mat/glass.tres" id="9_awfbm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4wy6n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwwv6"]
+albedo_texture = ExtResource("1_h5jt1")
+roughness = 0.0
+roughness_texture = ExtResource("4_oihta")
+normal_enabled = true
+normal_scale = 4.06
+normal_texture = ExtResource("3_qs6ha")
+heightmap_enabled = true
+heightmap_scale = 16.0
+heightmap_texture = ExtResource("2_i1t33")
+uv1_scale = Vector3(6, 6, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4a5ik"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_81ies"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uuqtx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yunv2"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ryn4k"]
+sky_material = SubResource("ProceduralSkyMaterial_yunv2")
+
+[sub_resource type="Environment" id="Environment_mahso"]
+background_mode = 2
+sky = SubResource("Sky_ryn4k")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_86qjx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knke2"]
+albedo_color = Color(0.113725, 0.113725, 0.113725, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gijkh"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tytw7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_faao4"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihxrs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0vk4"]
+
+[node name="House_01_by_progma_err" type="Node3D"]
+
+[node name="packages" type="Node3D" parent="."]
+
+[node name="floor_woddy" type="StaticBody3D" parent="packages"]
+transform = Transform3D(13.7592, 0, 0, 0, 1, 0, 0, 0, 13.3625, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/floor_woddy"]
+shape = SubResource("BoxShape3D_4wy6n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="packages/floor_woddy/CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_jwwv6")
+mesh = SubResource("BoxMesh_4a5ik")
+
+[node name="Wall_01" type="StaticBody3D" parent="packages"]
+transform = Transform3D(4.19822, 0, 0, 0, 6.73274, 0, 0, 0, 0.988765, -4.72884, 3.69688, -6.18815)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/Wall_01"]
+shape = SubResource("BoxShape3D_81ies")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="packages/Wall_01/CollisionShape3D"]
+material_override = ExtResource("5_lq02m")
+mesh = SubResource("BoxMesh_uuqtx")
+
+[node name="Wall_03" type="StaticBody3D" parent="packages"]
+transform = Transform3D(-2.94027e-07, 0, 0.988765, 0, 6.73274, 0, -6.72655, 0, -4.32203e-08, 6.252, 3.69688, -3.23719)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/Wall_03"]
+shape = SubResource("BoxShape3D_81ies")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="packages/Wall_03/CollisionShape3D"]
+material_override = ExtResource("5_lq02m")
+mesh = SubResource("BoxMesh_uuqtx")
+
+[node name="Wall_02" type="StaticBody3D" parent="packages"]
+transform = Transform3D(4.19822, 0, 0, 0, 6.73274, 0, 0, 0, 0.988765, 4.67438, 3.69688, -6.18815)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/Wall_02"]
+shape = SubResource("BoxShape3D_81ies")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="packages/Wall_02/CollisionShape3D"]
+material_override = ExtResource("5_lq02m")
+mesh = SubResource("BoxMesh_uuqtx")
+
+[node name="Wall_04" type="StaticBody3D" parent="packages"]
+transform = Transform3D(-5.70281e-07, 0, 0.988765, 0, 6.73274, 0, -13.0465, 0, -4.32203e-08, -6.33653, 3.69688, 0.250906)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/Wall_04"]
+shape = SubResource("BoxShape3D_81ies")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="packages/Wall_04/CollisionShape3D"]
+material_override = ExtResource("5_lq02m")
+mesh = SubResource("BoxMesh_uuqtx")
+
+[node name="Wall_05" type="StaticBody3D" parent="packages"]
+transform = Transform3D(-13.0465, 0, -8.64406e-08, 0, 6.73274, 0, 1.14056e-06, 0, -0.988765, -0.0102515, 3.69688, 6.30706)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/Wall_05"]
+shape = SubResource("BoxShape3D_81ies")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="packages/Wall_05/CollisionShape3D"]
+transform = Transform3D(1, 0, -1.33227e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("5_lq02m")
+mesh = SubResource("BoxMesh_uuqtx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="packages"]
+transform = Transform3D(-0.250148, -0.94666, 0.203129, -0.920295, 0.297658, 0.253884, -0.300805, -0.12343, -0.945665, 0, 1.14223, 0)
+light_color = Color(0.980392, 0.858824, 0.588235, 1)
+light_energy = 16.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="packages"]
+environment = SubResource("Environment_mahso")
+
+[node name="roof" type="StaticBody3D" parent="packages"]
+transform = Transform3D(13.7592, 0, 0, 0, 1, 0, 0, 0, 13.3625, 0, 6.58469, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/roof"]
+shape = SubResource("BoxShape3D_4wy6n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="packages/roof/CollisionShape3D"]
+material_override = ExtResource("5_lq02m")
+mesh = SubResource("BoxMesh_4a5ik")
+
+[node name="Tv" type="Node3D" parent="packages"]
+transform = Transform3D(0.246408, 0, 0, 0, 2.92315, 0, 0, 0, 5.52367, 5.7812, 3.88429, -2.72618)
+
+[node name="cover" type="StaticBody3D" parent="packages/Tv"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/Tv/cover"]
+shape = SubResource("BoxShape3D_86qjx")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="packages/Tv/cover/CollisionShape3D"]
+material = SubResource("StandardMaterial3D_knke2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="packages/Tv"]
+transform = Transform3D(1, 0, 0, 0, 0.946313, 0, 0, 0, 0.976939, -0.0976524, -0.013345, 0.000804126)
+material = SubResource("StandardMaterial3D_gijkh")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="packages"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8376, 0)
+update_mode = 1
+max_distance = 143.3
+box_projection = true
+interior = true
+enable_shadows = true
+
+[node name="sofa" type="StaticBody3D" parent="packages"]
+transform = Transform3D(0.347679, 0, 0, 0, 0.178384, 0, 0, 0, 0.347, -4.16598, 1.14973, -2.88884)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/sofa"]
+shape = SubResource("BoxShape3D_tytw7")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="packages/sofa/CollisionShape3D"]
+material = ExtResource("6_j6k7v")
+
+[node name="AnyConv_comSofaGroup" type="MeshInstance3D" parent="packages"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.85436, 0.5, -6.04949)
+material_override = ExtResource("6_j6k7v")
+mesh = ExtResource("7_7pgn1")
+
+[node name="fridge" type="StaticBody3D" parent="packages"]
+transform = Transform3D(2.36508, 0, 0, 0, 2.52055, 0, 0, 0, 1.92888, -4.73885, 1.53805, 4.52005)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/fridge"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="packages/fridge/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1.6832, 0, 0, 0, 0.999999, 0, 0, 0)
+material = ExtResource("8_smr3w")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="packages/fridge/CollisionShape3D"]
+transform = Transform3D(0.912429, 0, 0, 0, 1.20931, 0, 0, 0, 0.950372, 0, 0.45485, 0)
+material = SubResource("StandardMaterial3D_faao4")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="packages/fridge/CollisionShape3D"]
+transform = Transform3D(1.00627, 0, 0, 0, 0.668382, 0, 0, 0, 0.999999, 0, 1.25249, 0)
+material = ExtResource("8_smr3w")
+
+[node name="glass" type="StaticBody3D" parent="packages"]
+transform = Transform3D(1.21074, 0, 0, 0, 7.30323, 0, 0, 0, 0.710924, -0.172129, 3.91503, -6.21758)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/glass"]
+shape = SubResource("BoxShape3D_ihxrs")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="packages/glass/CollisionShape3D"]
+transform = Transform3D(4.65346, 0, 0, 0, 1, 0, 0, 0, 1, 0.116667, -0.137283, 0.0482621)
+material = ExtResource("9_awfbm")
+
+[node name="glass_2" type="StaticBody3D" parent="packages"]
+transform = Transform3D(0.0638783, 0, 0, 0, 5.83543, 0, 0, 0, 6.35866, 6.03038, 3.28574, 2.95445)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="packages/glass_2"]
+shape = SubResource("BoxShape3D_a0vk4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="packages/glass_2/CollisionShape3D"]
+material = ExtResource("9_awfbm")
